@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe, CurrencyPipe } from '@angular/common';
 import { DebtService, Debt } from '../../services/debt.service';
@@ -9,60 +9,81 @@ import { DebtService, Debt } from '../../services/debt.service';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-
 export class DashboardComponent implements OnInit {
-    debts: Debt[] = [];
-    filteredDebts: Debt[] = [];
-    filterForm!: FormGroup;
-    usuarioId!: number;
-    constructor(private debtService: DebtService, private fb: FormBuilder) {}
+  debts: Debt[] = [];
+  deudasQueDebo: Debt[] = [];
+  deudasQueMeDeben: Debt[] = [];
+  filteredDebts: Debt[] = [];
+  filterForm!: FormGroup;
+  usuarioId!: number;
+  activeTab: 'debo' | 'meDeben' = 'debo'; // control de tabs
 
-    ngOnInit(): void {
-      const storedUserId = localStorage.getItem('userId');
-      if (storedUserId) {
-        this.usuarioId = Number(storedUserId);
-      }
+  totalDebo: number = 0;
+  totalMeDeben: number = 0;
 
-      this.filterForm = this.fb.group({
-        estado: [''],
-        deudor: [''],
-        fechaInicio: [''],
-        fechaFin: ['']
-      });
+  constructor(private debtService: DebtService, private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
-      if (this.usuarioId) {
-        this.loadDebts(this.usuarioId);
-      }
+  ngOnInit(): void {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      this.usuarioId = Number(storedUserId);
     }
 
-    loadDebts(usuarioId: number): void {
+    this.filterForm = this.fb.group({
+      estado: [''],
+      acreedor: [''],
+      fechaInicio: [''],
+      fechaFin: ['']
+    });
+
+    if (this.usuarioId) {
+      this.loadDebts(this.usuarioId);
+    }
+  }
+
+  loadDebts(usuarioId: number): void {
     this.debtService.listDebtsByUser(usuarioId).subscribe((res) => {
       this.debts = res;
-      this.filteredDebts = [...this.debts]; // copia inicial
+
+      // dividir las deudas
+      this.deudasQueDebo = this.debts.filter(d => d.deudor_id === this.usuarioId);
+      this.deudasQueMeDeben = this.debts.filter(d => d.acreedor_id === this.usuarioId);
+
+      // calcular totales
+      this.totalDebo = this.deudasQueDebo.reduce((sum, d) => sum + d.monto, 0);
+      this.totalMeDeben = this.deudasQueMeDeben.reduce((sum, d) => sum + d.monto, 0);
+
+      // inicializar lista filtrada con el tab activo
+      this.filteredDebts = [...this.deudasQueDebo];
+
+       this.switchTab(this.activeTab);
+       this.cd.detectChanges();
     });
   }
 
-  applyFilters(): void {
-    const { estado, deudor, fechaInicio, fechaFin } = this.filterForm.value;
+  switchTab(tab: 'debo' | 'meDeben'): void {
+    this.activeTab = tab;
+    this.filteredDebts = tab === 'debo'
+      ? [...this.deudasQueDebo]
+      : [...this.deudasQueMeDeben];
+    this.applyFilters();
+  }
 
-    this.filteredDebts = this.debts.filter((d) => {
+  applyFilters(): void {
+    const { estado, acreedor, fechaInicio, fechaFin } = this.filterForm.value;
+
+    const source = this.activeTab === 'debo'
+      ? this.deudasQueDebo
+      : this.deudasQueMeDeben;
+
+    this.filteredDebts = source.filter((d) => {
+      debugger
       let match = true;
 
-      if (estado && d.estado !== estado) {
-        match = false;
-      }
-
-      if (deudor && d.deudor?.toLowerCase().includes(deudor.toLowerCase()) === false) {
-        match = false;
-      }
-
-      if (fechaInicio && new Date(d.fecha) < new Date(fechaInicio)) {
-        match = false;
-      }
-
-      if (fechaFin && new Date(d.fecha) > new Date(fechaFin)) {
-        match = false;
-      }
+      if (estado && d.estado !== estado) match = false;
+      if (acreedor && !d.acreedor.toLowerCase().includes(acreedor.toLowerCase())) match = false;
+      if (fechaInicio && new Date(d.fecha_creacion) < new Date(fechaInicio)) match = false;
+      if (fechaFin && new Date(d.fecha_creacion) > new Date(fechaFin)) match = false;
 
       return match;
     });
@@ -70,6 +91,6 @@ export class DashboardComponent implements OnInit {
 
   clearFilters(): void {
     this.filterForm.reset();
-    this.filteredDebts = [...this.debts];
+    this.switchTab(this.activeTab);
   }
 }

@@ -1,3 +1,20 @@
+<!-- Balance -->
+<div class="balance">
+  <p><strong>Total que debo:</strong> {{ totalDebo | currency }}</p>
+  <p><strong>Total que me deben:</strong> {{ totalMeDeben | currency }}</p>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button [class.active]="activeTab === 'debo'" (click)="switchTab('debo')">
+    Mis Deudas (Debo)
+  </button>
+  <button [class.active]="activeTab === 'meDeben'" (click)="switchTab('meDeben')">
+    Me Deben
+  </button>
+</div>
+
+<!-- Filtros -->
 <div class="filters">
   <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
     <label>Estado:</label>
@@ -7,8 +24,8 @@
       <option value="PAGADA">Pagada</option>
     </select>
 
-    <label>Deudor:</label>
-    <input type="text" formControlName="deudor" placeholder="Nombre deudor" />
+    <label>Acreedor:</label>
+    <input type="text" formControlName="acreedor" placeholder="Nombre acreedor" />
 
     <label>Fecha inicio:</label>
     <input type="date" formControlName="fechaInicio" />
@@ -23,11 +40,13 @@
 
 <hr />
 
+<!-- Tabla -->
 <table>
   <thead>
     <tr>
       <th>ID</th>
       <th>Deudor</th>
+      <th>Acreedor</th>
       <th>Monto</th>
       <th>Fecha</th>
       <th>Estado</th>
@@ -38,10 +57,11 @@
           'paid': debt.estado === 'PAGADA', 
           'pending': debt.estado === 'PENDIENTE' 
         }">
-      <td>{{ debt.deudaId }}</td>
+      <td>{{ debt.deuda_id }}</td>
       <td>{{ debt.deudor }}</td>
+      <td>{{ debt.acreedor }}</td>
       <td>{{ debt.monto | currency }}</td>
-      <td>{{ debt.fecha | date }}</td>
+      <td>{{ debt.fecha_creacion | date }}</td>
       <td>{{ debt.estado }}</td>
     </tr>
   </tbody>

@@ -30,7 +30,7 @@ export class LoginComponent {
 
     this.authService.login(correo, contrasenia).subscribe({
       next: (res) => {
-        console.log('Login exitoso:', res);
+        debugger
         alert('Bienvenido ' + res.usuario);
         localStorage.setItem('userId', res.userId);
         this.router.navigate(['/dashboard']);

@@ -3,12 +3,15 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Debt {
-  deudaId: number;
-  usuarioId: number;
+  deuda_id: number;
+  usuario_id: number;
   monto: number;
   estado: string;
-  fecha: string;
+  fecha_creacion: string;
+  deudor_id: number;
+  acreedor_id: number;
   deudor: string;
+  acreedor: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -22,5 +25,9 @@ export class DebtService {
     usuarioId: number
   ): Observable<Debt[]> {
     return this.http.get<Debt[]>(`${this.apiUrl}/list/user/${usuarioId}`);
+  }
+
+  createDebt(debt: { deudor_id: number; acreedor_id: number; monto: number }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/create`, debt);
   }
 }

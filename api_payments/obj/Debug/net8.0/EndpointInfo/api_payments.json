@@ -504,9 +504,17 @@
             "type": "integer",
             "format": "int32"
           },
+          "deudor": {
+            "type": "string",
+            "nullable": true
+          },
           "acreedor_id": {
             "type": "integer",
             "format": "int32"
+          },
+          "acreedor": {
+            "type": "string",
+            "nullable": true
           },
           "monto": {
             "type": "number",

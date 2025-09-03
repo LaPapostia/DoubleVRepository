@@ -363,22 +363,28 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION fn_deuda_listar_usuario(
-    p_usuario_id INT
-) RETURNS TABLE (
-    deuda_id INT,
-    deudor VARCHAR,
-    acreedor VARCHAR,
-    monto NUMERIC,
-    saldo NUMERIC,
-    estado VARCHAR,
-    fecha_creacion TIMESTAMP
-) AS
-$$
+    p_usuario_id integer
+)
+RETURNS TABLE(
+    deuda_id integer,
+    deudor character varying,
+    acreedor character varying,
+    deudor_id integer,
+    acreedor_id integer,
+    monto numeric,
+    saldo numeric,
+    estado character varying,
+    fecha_creacion timestamp without time zone
+) 
+LANGUAGE plpgsql
+AS $BODY$
 BEGIN
     RETURN QUERY
     SELECT d.deuda_id,
            u1.usuario AS deudor,
            u2.usuario AS acreedor,
+           u1.usuario_id AS deudor_id,
+           u2.usuario_id AS acreedor_id,
            d.monto,
            d.saldo,
            d.estado,
@@ -389,7 +395,11 @@ BEGIN
     WHERE d.deudor_id = p_usuario_id OR d.acreedor_id = p_usuario_id
     ORDER BY d.fecha_creacion DESC;
 END;
-$$ LANGUAGE plpgsql;
+$BODY$;
+
+ALTER FUNCTION public.fn_deuda_listar_usuario(integer)
+    OWNER TO postgres;
+
 
 
 -------- Pagos --------
