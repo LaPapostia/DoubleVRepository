@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DataLayer.Repositories
 {
-    public class DeudaRepository
+    public class DebtRepository
     {
         /// <summary>
         /// Method for the creation of a new 
@@ -21,7 +21,17 @@ namespace DataLayer.Repositories
             if (SharedDataInstance.Instance.ServiceProvider == null)
                 throw new Exception("Se tienen problemas en el uso de inyección de dependencias.");
             using var scope = SharedDataInstance.Instance.ServiceProvider.CreateScope();
-
+            /// Creating the instance for the repository
+            PostgresRepository<List<int>> repository = scope.ServiceProvider.GetRequiredService<PostgresRepository<List<int>>>();
+            /// Creating the params object
+            object param = new
+            {
+                debtorId,
+                creditorId,
+                total
+            };
+            /// Executing the sentence
+            await repository.PostAsync("spMaintenancePlanLogReduce");
         }
 
     }
