@@ -378,7 +378,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION fn_pago_listar(
+CREATE OR REPLACE FUNCTION fn_pago_listar_deuda(
     p_deuda_id INT
 ) RETURNS TABLE (
     pago_id INT,
@@ -394,3 +394,5 @@ BEGIN
     ORDER BY p.fecha_pago;
 END;
 $$ LANGUAGE plpgsql;
+
+

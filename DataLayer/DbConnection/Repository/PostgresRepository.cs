@@ -21,12 +21,26 @@ namespace DataLayer.DbConnection.Repository
                 ?? throw new Exception("No se pudo generar la conexión para la BD");
             try
             {
-                /// Return the data result
-                return await _connection.QueryAsync<T>(
-                                storedProcedure,
-                                parameters,
-                                commandType: CommandType.StoredProcedure
-                            );
+                /// Function query
+                if (storedProcedure.StartsWith("fn_"))
+                {
+                    var paramNames = parameters?.GetType().GetProperties().Select(p => "@" + p.Name) ?? Array.Empty<string>();
+                    var sql = $"SELECT * FROM {storedProcedure}({string.Join(", ", paramNames)})";
+
+                    return await _connection.QueryAsync<T>(
+                        sql,
+                        parameters,
+                        commandType: CommandType.Text
+                    );
+                }
+                else /// Stored procedure
+                {
+                    return await _connection.QueryAsync<T>(
+                        storedProcedure,
+                        parameters,
+                        commandType: CommandType.StoredProcedure
+                    );
+                }
             }
             catch { throw; }
             finally { _connection.Close(); }

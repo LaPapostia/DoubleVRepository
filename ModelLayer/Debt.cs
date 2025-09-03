@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    class Debt
+    public class Debt
     {
         public int deuda_id { get; set; }
         public int deudor_id { get; set; }
