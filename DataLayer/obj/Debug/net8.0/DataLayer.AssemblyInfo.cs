@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("api_payments")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("DataLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e21d46795d020f2179239e43cec86c9ab7be882")]
-[assembly: System.Reflection.AssemblyProductAttribute("api_payments")]
-[assembly: System.Reflection.AssemblyTitleAttribute("api_payments")]
+[assembly: System.Reflection.AssemblyProductAttribute("DataLayer")]
+[assembly: System.Reflection.AssemblyTitleAttribute("DataLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
