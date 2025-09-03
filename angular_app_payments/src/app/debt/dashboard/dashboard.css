@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.paid {
+  background-color: #d4edda; /* verde claro */
+}
+
+.pending {
+  background-color: #f8d7da; /* rojo claro */
+}
+
+.filters {
+  margin-bottom: 20px;
+}

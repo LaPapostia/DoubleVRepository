@@ -1,0 +1,48 @@
+<div class="filters">
+  <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <label>Estado:</label>
+    <select formControlName="estado">
+      <option value="">Todos</option>
+      <option value="PENDIENTE">Pendiente</option>
+      <option value="PAGADA">Pagada</option>
+    </select>
+
+    <label>Deudor:</label>
+    <input type="text" formControlName="deudor" placeholder="Nombre deudor" />
+
+    <label>Fecha inicio:</label>
+    <input type="date" formControlName="fechaInicio" />
+
+    <label>Fecha fin:</label>
+    <input type="date" formControlName="fechaFin" />
+
+    <button type="submit">Aplicar</button>
+    <button type="button" (click)="clearFilters()">Limpiar</button>
+  </form>
+</div>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Deudor</th>
+      <th>Monto</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let debt of filteredDebts" [ngClass]="{ 
+          'paid': debt.estado === 'PAGADA', 
+          'pending': debt.estado === 'PENDIENTE' 
+        }">
+      <td>{{ debt.deudaId }}</td>
+      <td>{{ debt.deudor }}</td>
+      <td>{{ debt.monto | currency }}</td>
+      <td>{{ debt.fecha | date }}</td>
+      <td>{{ debt.estado }}</td>
+    </tr>
+  </tbody>
+</table>

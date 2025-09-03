@@ -48,3 +48,9 @@ button:disabled {
   margin-top: 10px;
   text-align: center;
 }
+
+a[routerLink] {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

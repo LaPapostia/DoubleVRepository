@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,RouterLink],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
@@ -14,7 +16,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       correo: ['', [Validators.required, Validators.email]],
       contrasenia: ['', Validators.required]
@@ -30,6 +32,8 @@ export class LoginComponent {
       next: (res) => {
         console.log('Login exitoso:', res);
         alert('Bienvenido ' + res.usuario);
+        localStorage.setItem('userId', res.userId);
+        this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         console.error('Error en login:', err);

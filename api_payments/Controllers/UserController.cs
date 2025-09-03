@@ -78,6 +78,16 @@ namespace api_payments.Controllers
                 p_contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.contrasenia)
             };
 
+            /// Get all the users
+            var result = await _repository.GetAsync("fn_usuario_listar", null);
+
+            /// Iterate each and assign the value o the auth
+            foreach (var item in result)
+            {
+                if (BCrypt.Net.BCrypt.Verify(usuario.correo, item.correo))
+                    return BadRequest("Ya existe un usuario con ese correo");
+            }
+
             try
             {
                 await _repository.PostAsync("sp_usuario_crear", param);

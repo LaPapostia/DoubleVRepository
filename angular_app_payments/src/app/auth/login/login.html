@@ -22,4 +22,10 @@
   </form>
 
   <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+<p>
+  ¿No tienes cuenta?
+  <a routerLink="/register" style="cursor: pointer; text-decoration: underline; color: blue;">
+    Crear usuario
+  </a>
+</p>
 </div>

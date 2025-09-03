@@ -1,0 +1,47 @@
+<div class="register-container">
+  <h2>Crear Usuario</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="usuario">Usuario</label>
+      <input id="usuario" type="text" formControlName="usuario" />
+      <div *ngIf="registerForm.get('usuario')?.invalid && registerForm.get('usuario')?.touched">
+        El usuario es requerido
+      </div>
+    </div>
+
+    <div>
+      <label for="correo">Correo</label>
+      <input id="correo" type="email" formControlName="correo" />
+      <div *ngIf="registerForm.get('correo')?.invalid && registerForm.get('correo')?.touched">
+        Correo inválido
+      </div>
+    </div>
+
+    <div>
+      <label for="contrasenia">Contraseña</label>
+      <input id="contrasenia" type="password" formControlName="contrasenia" />
+      <div *ngIf="registerForm.get('contrasenia')?.invalid && registerForm.get('contrasenia')?.touched">
+        La contraseña es requerida (mínimo 6 caracteres)
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmContrasenia">Confirmar Contraseña</label>
+      <input id="confirmContrasenia" type="password" formControlName="confirmContrasenia" />
+      <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmContrasenia')?.touched">
+        Las contraseñas no coinciden
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+
+  <p>
+    ¿Ya tienes cuenta?
+    <a routerLink="/login">Iniciar sesión</a>
+  </p>
+</div>
