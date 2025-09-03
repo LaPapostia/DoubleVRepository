@@ -15,7 +15,6 @@ D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_paymen
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.AssemblyInfoInputs.cache
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.AssemblyInfo.cs
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.csproj.CoreCompileInputs.cache
-D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.MvcApplicationPartsAssemblyInfo.cs
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.MvcApplicationPartsAssemblyInfo.cache
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.sourcelink.json
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\scopedcss\bundle\api_payments.styles.css
@@ -35,3 +34,13 @@ D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\refint\api
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.pdb
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.genruntimeconfig.cache
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\ref\api_payments.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Dapper.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Npgsql.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\DataLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\ModelLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\DataLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\ModelLayer.pdb

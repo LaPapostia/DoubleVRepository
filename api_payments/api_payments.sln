@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api_payments", "api_payment
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\DataLayer\DataLayer.csproj", "{2D1DA825-8773-4F8D-951A-9AF12B545F5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "..\ModelLayer\ModelLayer.csproj", "{A840A13A-81E0-4A27-AB0C-F3348FEEB92C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2D1DA825-8773-4F8D-951A-9AF12B545F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D1DA825-8773-4F8D-951A-9AF12B545F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D1DA825-8773-4F8D-951A-9AF12B545F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A840A13A-81E0-4A27-AB0C-F3348FEEB92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A840A13A-81E0-4A27-AB0C-F3348FEEB92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A840A13A-81E0-4A27-AB0C-F3348FEEB92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A840A13A-81E0-4A27-AB0C-F3348FEEB92C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

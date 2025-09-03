@@ -1,0 +1,12 @@
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\bin\Debug\net8.0\ModelLayer.deps.json
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\bin\Debug\net8.0\ModelLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\bin\Debug\net8.0\ModelLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.AssemblyInfoInputs.cache
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.AssemblyInfo.cs
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.csproj.CoreCompileInputs.cache
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.sourcelink.json
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\refint\ModelLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ModelLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\ModelLayer\obj\Debug\net8.0\ref\ModelLayer.dll

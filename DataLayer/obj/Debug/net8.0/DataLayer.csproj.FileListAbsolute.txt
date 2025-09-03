@@ -1,0 +1,13 @@
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.csproj.AssemblyReference.cache
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.AssemblyInfoInputs.cache
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.AssemblyInfo.cs
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.csproj.CoreCompileInputs.cache
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.sourcelink.json
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\bin\Debug\net8.0\DataLayer.deps.json
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\bin\Debug\net8.0\DataLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\bin\Debug\net8.0\DataLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\refint\DataLayer.dll
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\DataLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\DataLayer\obj\Debug\net8.0\ref\DataLayer.dll

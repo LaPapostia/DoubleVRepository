@@ -3,27 +3,15 @@
   "WorkspaceRootPath": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\dbconnection\\repository\\postgresrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\dbconnection\\factory\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\dbconnection\\factory\\idbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1DA825-8773-4F8D-951A-9AF12B545F5F}|..\\DataLayer\\DataLayer.csproj|d:\\interviews\\doublev\\doublevrepository\\datalayer\\dbconnection\\repository\\ipostgresrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,70 +21,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "..\\DataLayer\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "..\\DataLayer\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAdAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PostgresRepository.cs",
+              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Repository\\PostgresRepository.cs",
+              "RelativeDocumentMoniker": "..\\DataLayer\\DbConnection\\Repository\\PostgresRepository.cs",
+              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Repository\\PostgresRepository.cs",
+              "RelativeToolTip": "..\\DataLayer\\DbConnection\\Repository\\PostgresRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwDMAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:50:02.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IPostgresRepository.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Repository\\IPostgresRepository.cs",
-              "RelativeDocumentMoniker": "..\\DataLayer\\DbConnection\\Repository\\IPostgresRepository.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Repository\\IPostgresRepository.cs",
-              "RelativeToolTip": "..\\DataLayer\\DbConnection\\Repository\\IPostgresRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:37:47.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IDbConnectionFactory.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Factory\\IDbConnectionFactory.cs",
-              "RelativeDocumentMoniker": "..\\DataLayer\\DbConnection\\Factory\\IDbConnectionFactory.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Factory\\IDbConnectionFactory.cs",
-              "RelativeToolTip": "..\\DataLayer\\DbConnection\\Factory\\IDbConnectionFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:37:33.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DbConnectionFactory.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Factory\\DbConnectionFactory.cs",
-              "RelativeDocumentMoniker": "..\\DataLayer\\DbConnection\\Factory\\DbConnectionFactory.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DbConnection\\Factory\\DbConnectionFactory.cs",
-              "RelativeToolTip": "..\\DataLayer\\DbConnection\\Factory\\DbConnectionFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:37:27.494Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "..\\DataLayer\\DependencyInjection.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\DataLayer\\DependencyInjection.cs",
-              "RelativeToolTip": "..\\DataLayer\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:33:42.326Z",
+              "WhenOpened": "2025-09-03T15:54:43.183Z",
               "EditorCaption": ""
             },
             {
@@ -107,20 +44,20 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:31:21.1Z",
+              "WhenOpened": "2025-09-03T15:44:06.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-03T14:27:36.848Z",
               "EditorCaption": ""

@@ -1,81 +1,53 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataLayer.DbConnection.Repository;
+using Microsoft.AspNetCore.Mvc;
+using ModelLayer;
 
 namespace api_payments.Controllers
 {
-    public class UserController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UserController : ControllerBase
     {
-        // GET: UserController
-        public ActionResult Index()
+        /// <summary>
+        /// Declared repository for the creation of the instance request
+        /// </summary>
+        private readonly IPostgresRepository<dynamic> _repository;
+
+        /// <summary>
+        /// constructor for the assign of the repository value
+        /// </summary>
+        /// <param name="repository"></param>
+        public UserController(IPostgresRepository<dynamic> repository)
         {
-            return View();
+            _repository = repository;
         }
 
-        // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        /// <summary>
+        /// Crear un nuevo usuario
+        /// </summary>
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateUser([FromBody] User usuario)
         {
-            return View();
-        }
+            if (usuario == null)
+                return BadRequest("El usuario es requerido.");
 
-        // GET: UserController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+            var param = new
+            {
+                p_usuario = usuario.usuario,
+                p_correo = usuario.correo,
+                p_contrasenia = usuario.contrasenia
+            };
 
-        // POST: UserController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                /// Executing the sentence
+                await _repository.PostAsync("sp_usuario_crear", param);
 
-        // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                return Ok(new { UsuarioId = usuario });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
-            }
-        }
-
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                return StatusCode(500, $"Error al crear usuario: {ex.Message}");
             }
         }
     }

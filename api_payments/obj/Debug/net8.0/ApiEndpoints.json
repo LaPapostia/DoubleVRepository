@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "api_payments.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "ModelLayer.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "api_payments.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
