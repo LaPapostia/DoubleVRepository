@@ -51,3 +51,4 @@ D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Pipelines.
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\StackExchange.Redis.dll
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.MvcApplicationPartsAssemblyInfo.cs
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\BCrypt.Net-Next.dll

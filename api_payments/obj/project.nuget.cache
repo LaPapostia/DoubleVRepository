@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nCGRS4e/wX8=",
+  "dgSpecHash": "NRZDLeqbO0Q=",
   "success": true,
   "projectFilePath": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\api_payments.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lepap\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\lepap\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\lepap\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\lepap\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.8\\microsoft.extensions.caching.abstractions.9.0.8.nupkg.sha512",

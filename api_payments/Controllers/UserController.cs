@@ -20,6 +20,49 @@ namespace api_payments.Controllers
         }
 
         /// <summary>
+        /// Login de usuario (valida correo y contraseña)
+        /// </summary>
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Correo) || string.IsNullOrEmpty(request.Contrasenia))
+                return BadRequest("Correo y contraseña son requeridos.");
+
+            try
+            {
+                /// User validate
+                User user = null;
+                /// Get all the users
+                var result = await _repository.GetAsync("fn_usuario_listar", null);
+
+                if (result == null || !result.Any())
+                    return Unauthorized("No hay usuarios actualmente disponibles");
+
+                /// Iterate each and assign the value o the auth
+                foreach (var item in result)
+                {
+                    if (BCrypt.Net.BCrypt.Verify(request.Correo, item.correo))
+                        user = item;
+                }
+
+                ///  Validate if the user is null
+                if (user is null)
+                    return Unauthorized("Credenciales incorrectas.");
+
+                /// Compare the passwords
+                if (!BCrypt.Net.BCrypt.Verify(request.Contrasenia, (string)user.contrasenia))
+                    return Unauthorized("Credenciales incorrectas.");
+
+                return Ok(new { message = "Login exitoso", userId = user.usuario_id, usuario = user.usuario });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al intentar login: {ex.Message}");
+            }
+        }
+
+
+        /// <summary>
         /// Crear un nuevo usuario
         /// </summary>
         [HttpPost("create")]
@@ -31,8 +74,8 @@ namespace api_payments.Controllers
             var param = new
             {
                 p_usuario = usuario.usuario,
-                p_correo = usuario.correo,
-                p_contrasenia = usuario.contrasenia
+                p_correo = BCrypt.Net.BCrypt.HashPassword(usuario.correo),
+                p_contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.contrasenia)
             };
 
             try

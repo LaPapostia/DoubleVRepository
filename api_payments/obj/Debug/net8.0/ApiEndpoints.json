@@ -249,6 +249,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "api_payments.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/User/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ModelLayer.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "api_payments.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

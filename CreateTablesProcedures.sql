@@ -6,7 +6,7 @@
 CREATE TABLE usuarios (
     usuario_id SERIAL PRIMARY KEY,
     usuario VARCHAR(100) NOT NULL,
-    contrasenia VARCHAR(50) NOT NULL,
+    contrasenia VARCHAR(150) NOT NULL,
     correo VARCHAR(150) UNIQUE NOT NULL,
     fecha_registro TIMESTAMP DEFAULT NOW()
 );
@@ -107,6 +107,10 @@ CREATE OR REPLACE PROCEDURE sp_deuda_crear(
 LANGUAGE plpgsql
 AS $$
 BEGIN
+	IF p_monto <= 0 THEN
+		RAISE EXCEPTION 'No se puede crear una deuda con saldo negativo o 0';
+	END IF; 
+	
     INSERT INTO deudas (deudor_id, acreedor_id, monto, saldo)
     VALUES (p_deudor_id, p_acreedor_id, p_monto, p_monto);
 END;
@@ -126,10 +130,15 @@ BEGIN
     FROM deudas 
     WHERE deuda_id = p_deuda_id;
 
-    IF v_estado IS NULL THEN
+   	IF v_estado IS NULL THEN
         RAISE EXCEPTION 'La deuda no existe';
     ELSIF v_estado = 'PAGADA' THEN
         RAISE EXCEPTION 'No se puede editar una deuda ya pagada';
+    ELSE
+        -- Verificar si ya tiene pagos asociados
+        IF EXISTS (SELECT 1 FROM pagos WHERE deuda_id = p_deuda_id) THEN
+            RAISE EXCEPTION 'No se puede editar una deuda que ya tiene pagos registrados';
+        END IF;
     END IF;
 
     UPDATE deudas
@@ -175,8 +184,13 @@ AS $$
 DECLARE
     v_saldo NUMERIC;
 BEGIN
-    SELECT saldo INTO v_saldo FROM deudas WHERE deuda_id = p_deuda_id;
-
+    IF p_monto <= 0 THEN
+		RAISE EXCEPTION 'No se puede crear un pago en negativo ó 0';
+	END IF; 
+	
+	
+	SELECT saldo INTO v_saldo FROM deudas WHERE deuda_id = p_deuda_id;
+	
     IF v_saldo IS NULL THEN
         RAISE EXCEPTION 'La deuda no existe';
     ELSIF v_saldo = 0 THEN
@@ -263,6 +277,24 @@ $$;
 -- =========================
 -- FUNCTIONS
 -- =========================
+-------- Login --------
+CREATE OR REPLACE FUNCTION fn_login_correo(
+    p_correo VARCHAR
+) RETURNS TABLE (
+    usuario_id INT,
+    usuario VARCHAR,
+    correo VARCHAR,
+    contrasenia VARCHAR,
+    fecha_registro TIMESTAMP
+) AS
+$$
+BEGIN
+    RETURN QUERY
+    SELECT u.usuario_id, u.usuario, u.correo, u.contrasenia, u.fecha_registro
+    FROM usuarios u
+    WHERE u.correo = p_correo;
+END;
+$$ LANGUAGE plpgsql;
 
 -------- Usuarios --------
 CREATE OR REPLACE FUNCTION fn_usuario_consultar(
