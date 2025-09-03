@@ -44,3 +44,10 @@ D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\DataLayer.
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\ModelLayer.dll
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\DataLayer.pdb
 D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\ModelLayer.pdb
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\StackExchange.Redis.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\Interviews\DoubleV\DoubleVRepository\api_payments\obj\Debug\net8.0\api_payments.MvcApplicationPartsAssemblyInfo.cs

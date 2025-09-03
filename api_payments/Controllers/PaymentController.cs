@@ -1,6 +1,8 @@
 ﻿using DataLayer.DbConnection.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using ModelLayer;
+using System.Text.Json;
 
 namespace api_payments.Controllers
 {
@@ -9,10 +11,12 @@ namespace api_payments.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly IPostgresRepository<Payment> _repository;
+        private readonly IDistributedCache _cache;
 
-        public PaymentController(IPostgresRepository<Payment> repository)
+        public PaymentController(IPostgresRepository<Payment> repository, IDistributedCache cache)
         {
             _repository = repository;
+            _cache = cache;
         }
 
         /// <summary>
@@ -33,6 +37,10 @@ namespace api_payments.Controllers
             try
             {
                 await _repository.PostAsync("sp_pago_crear", param);
+
+                // 🔄 Invalidar cache relacionado con la deuda
+                await _cache.RemoveAsync($"payments:debt:{pago.deuda_id}");
+
                 return Ok(new { message = "Pago creado correctamente" });
             }
             catch (Exception ex)
@@ -59,6 +67,10 @@ namespace api_payments.Controllers
             try
             {
                 await _repository.UpdateAsync("sp_pago_editar", param);
+
+                // 🔄 Invalidar cache del pago individual
+                await _cache.RemoveAsync($"payment:{id}");
+
                 return Ok(new { message = "Pago actualizado correctamente" });
             }
             catch (Exception ex)
@@ -78,6 +90,10 @@ namespace api_payments.Controllers
             try
             {
                 await _repository.DeleteAsync("sp_pago_eliminar", param);
+
+                // 🔄 Invalidar cache del pago eliminado
+                await _cache.RemoveAsync($"payment:{id}");
+
                 return Ok(new { message = "Pago eliminado correctamente" });
             }
             catch (Exception ex)
@@ -92,6 +108,15 @@ namespace api_payments.Controllers
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetPayment(int id)
         {
+            string cacheKey = $"payment:{id}";
+            var cachedPayment = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedPayment))
+            {
+                var cachedData = JsonSerializer.Deserialize<Payment>(cachedPayment);
+                return Ok(cachedData);
+            }
+
             var param = new { p_pago_id = id };
 
             try
@@ -100,7 +125,18 @@ namespace api_payments.Controllers
                 if (result == null || !result.Any())
                     return NotFound($"Pago con ID {id} no encontrado.");
 
-                return Ok(result.First());
+                var payment = result.First();
+
+                // Guardar en cache
+                await _cache.SetStringAsync(
+                    cacheKey,
+                    JsonSerializer.Serialize(payment),
+                    new DistributedCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                    });
+
+                return Ok(payment);
             }
             catch (Exception ex)
             {
@@ -114,11 +150,30 @@ namespace api_payments.Controllers
         [HttpGet("list/debt/{deudaId}")]
         public async Task<IActionResult> ListPaymentsByDebt(int deudaId)
         {
+            string cacheKey = $"payments:debt:{deudaId}";
+            var cachedPayments = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedPayments))
+            {
+                var cachedData = JsonSerializer.Deserialize<IEnumerable<Payment>>(cachedPayments);
+                return Ok(cachedData);
+            }
+
             var param = new { p_deuda_id = deudaId };
 
             try
             {
                 var result = await _repository.GetAsync("fn_pago_listar_deuda", param);
+
+                // Guardar en cache
+                await _cache.SetStringAsync(
+                    cacheKey,
+                    JsonSerializer.Serialize(result),
+                    new DistributedCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                    });
+
                 return Ok(result);
             }
             catch (Exception ex)

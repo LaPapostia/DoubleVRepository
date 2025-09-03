@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\controllers\\debtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:controllers\\debtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|d:\\interviews\\doublev\\doublevrepository\\api_payments\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6A85451-776A-432E-B7E3-7BFD7D0CB785}|api_payments.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAIwHsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T16:40:26.54Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T16:55:23.616Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DebtController.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\DebtController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DebtController.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\DebtController.cs",
-              "RelativeToolTip": "Controllers\\DebtController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T16:36:09.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\Interviews\\DoubleV\\DoubleVRepository\\api_payments\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAIwHYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:27:36.848Z",
+              "WhenOpened": "2025-09-03T16:46:45.489Z",
               "EditorCaption": ""
             }
           ]
