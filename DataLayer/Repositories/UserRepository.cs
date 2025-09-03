@@ -1,11 +1,10 @@
-﻿using DataLayer.DbConnection.Factory;
-using DataLayer.DbConnection.Repository;
+﻿using DataLayer.DbConnection.Repository;
 using DataLayer.SharedInstance;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DataLayer.Repositories
 {
-    public class DebtRepository
+    public class UserRepository
     {
         /// <summary>
         /// Method for the creation of a new 
@@ -15,7 +14,7 @@ namespace DataLayer.Repositories
         /// <param name="monto"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public async Task CreateDebt(int debtorId, int creditorId, decimal total)
+        public static async Task CreateUser(string p_usuario, string p_correo, string p_contrasenia)
         {
             /// Validate if the share instance is created for the database execution methods
             if (SharedDataInstance.Instance.ServiceProvider == null)
@@ -26,12 +25,12 @@ namespace DataLayer.Repositories
             /// Creating the params object
             object param = new
             {
-                debtorId,
-                creditorId,
-                total
+                p_usuario,
+                p_correo,
+                p_contrasenia
             };
             /// Executing the sentence
-            await repository.PostAsync("spMaintenancePlanLogReduce");
+            await repository.PostAsync("fn_usuario_crear");
         }
 
     }

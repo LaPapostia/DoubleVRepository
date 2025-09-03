@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataLayer.DbConnection.Factory;
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
 

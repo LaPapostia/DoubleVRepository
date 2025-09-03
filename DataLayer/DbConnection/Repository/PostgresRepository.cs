@@ -1,17 +1,12 @@
-﻿using Npgsql;
-using System.Data;
-using Dapper;
+﻿using Dapper;
 using DataLayer.DbConnection.Factory;
+using System.Data;
 
 namespace DataLayer.DbConnection.Repository
 {
     public class PostgresRepository<T>(IDbConnectionFactory dbConnectionFactory)
         : IPostgresRepository<T> where T : class
     {
-        /// <summary>
-        /// Variable for the use of the current connection
-        /// </summary>
-        private readonly IDbConnectionFactory _connection = dbConnectionFactory;
         /// <summary>
         /// Method that return the information in base of the params
         /// Note: Close the connection once it finish
