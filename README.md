@@ -200,8 +200,8 @@ Consideraciones de comunicación:
 - Colas de mensajería (AWS SQS, RabbitMQ o Kafka) para procesos asincrónicos como notificaciones o generación de reportes.
 - Gateway API (API Gateway) para centralizar la entrada y aplicar seguridad, rate limiting y logging.
 
-2. Optimización en la nube (AWS)
-| Componente                | Servicio AWS recomendado        | Razones                                                                                                |
+## Optimización en la nube (AWS)
+| Componente                | Servicio AWS recomendado        | Razones                                                                                                      |
 | ------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | **Autenticación segura**  | **IAM de AWS + JWT**            | Maneja usuarios, roles, autenticación multifactor y tokens seguros sin reinventar el manejo de credenciales. |
 | **Base de datos**         | **Amazon RDS (PostgreSQL)**     | Escalable, con backups automáticos, alta disponibilidad y compatibilidad con SQL relacional.                 |
