@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { DebtService } from '../../services/debt.service';
-import { UserService, User } from '../../services/user.service';
+import { DebtService } from '../../../services/debt.service';
+import { UserService, User } from '../../../services/user.service';
 
 @Component({
   selector: 'app-debt-create',

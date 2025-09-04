@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 /// Login and register
-import { LoginComponent } from './auth/login/login';
-import { RegisterComponent } from './auth/register/register';
+import { LoginComponent } from './components/auth/login/login';
+import { RegisterComponent } from './components/auth/register/register';
 /// Debts
-import { DashboardComponent } from './debt/dashboard/dashboard';
-import { DebtCreateComponent } from './debt/debt-create/debt-create';
+import { DashboardComponent } from './components/debt/dashboard/dashboard';
+import { DebtCreateComponent } from './components/debt/debt-create/debt-create';
 // Auth Guard
 import { authGuard } from '../app/auth_guard/auth.guard';
 

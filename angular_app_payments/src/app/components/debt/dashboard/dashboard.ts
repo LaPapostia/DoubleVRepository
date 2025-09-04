@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe, CurrencyPipe } from '@angular/common';
-import { DebtService, Debt } from '../../services/debt.service';
+import { DebtService, Debt } from '../../../services/debt.service';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 

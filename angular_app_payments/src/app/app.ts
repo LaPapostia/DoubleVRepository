@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class App {
   protected readonly title = signal('angular_app_payments');
   isLoggedIn = false;
-
+  mobileMenuOpen = false;
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -29,5 +29,6 @@ export class App {
     localStorage.removeItem('userId');
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
+    this.mobileMenuOpen = false;
   }
 }
