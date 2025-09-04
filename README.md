@@ -21,3 +21,11 @@ dotnet add package BCrypt.Net-Next
 
 
 
+
+
+Angular Requriments
+
+xlsx file-saver - Paquete para la exportación de archivos excel
+
+npm install xlsx file-saver
+

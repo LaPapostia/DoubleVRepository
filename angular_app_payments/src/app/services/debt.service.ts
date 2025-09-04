@@ -6,6 +6,7 @@ export interface Debt {
   deuda_id: number;
   usuario_id: number;
   monto: number;
+  saldo: number;
   estado: string;
   fecha_creacion: string;
   deudor_id: number;

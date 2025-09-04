@@ -1,1 +1,23 @@
-<p>debt-create works!</p>
+<h2>Crear Deuda</h2>
+
+<form [formGroup]="debtForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="acreedor">Acreedor:</label>
+    <select id="acreedor" formControlName="acreedor_id">
+      <option value="">Seleccione un acreedor</option>
+      <option *ngFor="let user of users" [value]="user.usuario_id">
+        ({{ user.usuario_id }}) {{ user.usuario }} 
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="monto">Monto:</label>
+    <input id="monto" type="number" formControlName="monto" />
+  </div>
+
+  <button type="submit" [disabled]="debtForm.invalid">Guardar</button>
+</form>
+
+<div *ngIf="successMessage" style="color: green">{{ successMessage }}</div>
+<div *ngIf="errorMessage" style="color: red">{{ errorMessage }}</div>

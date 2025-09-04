@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe, CurrencyPipe } from '@angular/common';
 import { DebtService, Debt } from '../../services/debt.service';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +22,9 @@ export class DashboardComponent implements OnInit {
 
   totalDebo: number = 0;
   totalMeDeben: number = 0;
+
+  selectedDebt: Debt | null = null;
+  showModal = false;
 
   constructor(private debtService: DebtService, private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
@@ -77,12 +82,12 @@ export class DashboardComponent implements OnInit {
       : this.deudasQueMeDeben;
 
     this.filteredDebts = source.filter((d) => {
-      debugger
+     
       let match = true;
 
       if (estado && d.estado !== estado) match = false;
       if (acreedor && !d.acreedor.toLowerCase().includes(acreedor.toLowerCase())) match = false;
-      if (fechaInicio && new Date(d.fecha_creacion) < new Date(fechaInicio)) match = false;
+      if (fechaInicio && new Date(d.fecha_creacion) < new Date(fechaInicio)) match = false; // Va a fallar porque no puse la region :c
       if (fechaFin && new Date(d.fecha_creacion) > new Date(fechaFin)) match = false;
 
       return match;
@@ -92,5 +97,39 @@ export class DashboardComponent implements OnInit {
   clearFilters(): void {
     this.filterForm.reset();
     this.switchTab(this.activeTab);
+  }
+
+  openModal(debt: Debt): void {
+    this.selectedDebt = debt;
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.selectedDebt = null;
+  }
+
+
+  exportToExcel(): void {
+    // Preparamos los datos
+    const data = this.filteredDebts.map(d => ({
+      ID: d.deuda_id,
+      Deudor: d.deudor,
+      Acreedor: d.acreedor,
+      Monto: d.monto,
+      Saldo: d.saldo,
+      Estado: d.estado,
+      Fecha: new Date(d.fecha_creacion).toLocaleDateString()
+    }));
+
+    // Convertir a hoja Excel
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Deudas');
+
+    // Exportar
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const blob: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    saveAs(blob, `deudas_${this.activeTab}_${new Date().toISOString().slice(0,10)}.xlsx`);
   }
 }

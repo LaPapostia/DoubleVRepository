@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, Router, NavigationEnd  } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -14,13 +15,19 @@ export class App {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isLoggedIn = !!localStorage.getItem('userId');
+        if (event.urlAfterRedirects === '/login') {
+          localStorage.removeItem('userId');
+          this.isLoggedIn = false;
+        } else {
+          this.isLoggedIn = !!localStorage.getItem('userId');
+        }
       }
     });
   }
 
   logout(): void {
     localStorage.removeItem('userId');
+    this.isLoggedIn = false;
     this.router.navigate(['/login']);
   }
 }
