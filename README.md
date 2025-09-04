@@ -50,6 +50,7 @@ DoubleVRepository/
 ├─ frontend/                # Angular project
 │   ├─ src/app/
 │   │   ├─ components/      # Angular components (Login, Register, Dashboard, etc.)
+│   │   ├─ auth_guard/      # Angular components (Login, Register, Dashboard, etc.)
 │   │   ├─ services/        # API services
 │   │   └─ app.module.ts    # Angular module
 │   └─ tailwind.config.js   # TailwindCSS config
@@ -64,7 +65,7 @@ DoubleVRepository/
 ### Requirements
 
 * [.NET SDK 8+](https://dotnet.microsoft.com/download)
-* PostgreSQL database running locally or remote
+* PostgreSQL database running locally
 
 ### Packages
 
@@ -156,10 +157,10 @@ App will run at `http://localhost:4200`.
 * **PostgreSQL** used for storing users, debts, and payments.
 * Tables include:
 
-  * `users`
+  * `usuarios`
   * `deudas`
   * `pagos`
-* Connection handled via **Dapper** and optionally EF Core migrations.
+* Connection handled via **Dapper**.
 * Example connection string (appsettings.json):
 
 ```json
