@@ -145,7 +145,7 @@ npm install
 3. Run the Angular app:
 
 ```bash
-g serve
+ng serve
 ```
 
 App will run at `http://localhost:4200`.
