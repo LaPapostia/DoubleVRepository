@@ -184,3 +184,63 @@ App will run at `http://localhost:4200`.
 ## 🔹 Bibliography
 
 * [TailwindCSS + Angular guide](https://tailwindcss.com/docs/installation/framework-guides/angular)
+
+
+------------------------------------------------------------------------------------------------------------------
+# Fase 2: Preguntas de Arquitectura y Experiencia
+
+1. Microservicios
+Si el sistema creciera y necesitara pasar de monolito a microservicios, propondría la siguiente división:
+- Usuarios y autenticación → manejo de login, roles y tokens JWT.
+- Gestión de deudas → creación, actualización, listado de deudas.
+- Pagos y transacciones → registro de pagos, conciliaciones y saldos.
+- Reportes / exportación → generación de Excel o PDF, dashboards agregados.
+Consideraciones de comunicación:
+- API REST para comunicación sincrónica entre servicios críticos (usuarios ↔ deudas).
+- Colas de mensajería (AWS SQS, RabbitMQ o Kafka) para procesos asincrónicos como notificaciones o generación de reportes.
+- Gateway API (API Gateway) para centralizar la entrada y aplicar seguridad, rate limiting y logging.
+
+2. Optimización en la nube (AWS)
+| Componente                | Servicio AWS recomendado        | Razones                                                                                                |
+| ------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Autenticación segura**  | **IAM de AWS + JWT**            | Maneja usuarios, roles, autenticación multifactor y tokens seguros sin reinventar el manejo de credenciales. |
+| **Base de datos**         | **Amazon RDS (PostgreSQL)**     | Escalable, con backups automáticos, alta disponibilidad y compatibilidad con SQL relacional.                 |
+| **Cache y escalabilidad** | **ElastiCache (Redis)**         | Mejora rendimiento con datos frecuentes en memoria; reduce carga en la DB.                                   |
+| **Balanceo de carga**     | **Elastic Load Balancer (ALB)** | Distribuye tráfico entre instancias EC2 o servicios ECS/EKS; soporta HTTPS y alta disponibilidad.            |
+
+
+3. Buenas prácticas de seguridad
+Al menos 3 prácticas clave para garantizar seguridad:
+
+Backend:
+- Uso de JWT con expiración y roles para acceso a APIs.
+- Validación y sanitización de inputs para prevenir SQL Injection y XSS.
+
+Frontend:
+- HTTPS obligatorio para todas las comunicaciones.
+- Almacenamiento seguro de tokens (ej. HttpOnly cookies o session storage con cuidado).
+
+Despliegue en la nube:
+- Configuración de grupos de seguridad (Security Groups) limitando puertos y IPs.
+- Habilitar logs y monitoreo (CloudWatch) para detectar accesos sospechosos.
+
+4. PostgreSQL vs NoSQL
+- PostgreSQL (SQL) → cuando se requiere integridad de datos y relaciones complejas.
+Ejemplo: Sistema de deudas, pagos y usuarios, donde es importante mantener consistencia y relaciones FK.
+
+- NoSQL (MongoDB, DynamoDB) → cuando los datos son semi-estructurados y con consultas flexibles.
+Ejemplo: Logs de actividad de usuarios, almacenamiento de archivos JSON de transacciones, historial de eventos o dashboards agregados.
+
+5. Despliegue / CI-CD
+Pipeline recomendado para producción:
+
+- CI (Integración continua)
+Ejecución de pruebas unitarias (xUnit en backend, Karma/Jasmine en Angular).
+Build de frontend y backend.
+
+- CD (Despliegue continuo)
+Revisión automática de seguridad y vulnerabilidades (Dependabot, Snyk).
+Push a producción solo si staging tests pasan.
+Despliegue en AWS ECS/Fargate o EC2 + ALB, con rollback automático en caso de errores.
+
+
